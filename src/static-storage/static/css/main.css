@@ -1,0 +1,96 @@
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+/*navsidebar when displayed */
+#sidebar-wrapper {
+  z-index: 1;
+  position: fixed;
+  width: 185px;
+  height:100%;
+  overflow-y: hidden;
+  background: #000000;
+  /*border: 2px solid red;*/
+  opacity: 0.9;
+  overflow:scroll;
+
+
+}
+
+.sidebar-nav {
+  padding:0;
+  list-style:none;
+
+}
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+
+.sidebar-nav li a {
+  display:block;
+  text-decoration: none;
+  color:white;
+  font-weight: bold;
+  font-size:14px;
+
+}
+
+#wrapper.menuNotDisplayed #sidebar-wrapper {
+  width:0px;
+
+}
+
+#wrapper.menuNotDisplayed #page-content-wrapper {
+    width: 100%;
+    position:absolute;
+    padding-left:0px;
+}
+
+#page-content-wrapper {
+  /*width:100%;*/
+  /*position:absolute;*/
+  padding-left:185px;
+    width:100%;
+  /*border: 5px solid green;*/
+
+}
+
+.navimg {
+  height:30px;
+  width:30px;
+
+}
+
+.navbar-custom {
+    background-color:#1a1a1a;
+    color:#ffffff;
+    border-radius:0;
+}
+
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+
+
+li:hover {
+
+    background-color:green;
+}
+
+
+
+video {
+    margin-right: auto;
+    margin-left:100px;
+}
+

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>{{ object.username }}</h1>
+    <h2>{{ object.profile.id }}</h2>
+    <h2><img src="{{ object.profile.user_img.url }}"></h2>
+    <h2>{% if all_videos %}
+            <h1>Hello</h1>
+        {% for video in all_videos %}
+            <h4>{{ video.title }}
+                {{ object.profile.user.videos.all }}
+            </h4>
+
+        {% endfor %}
+        {% endif %}
+    </h2>
+</body>
+
+
+<script>
+     $(document).ready(function() {
+
+         function displayProfile(profileValue) {
+             var verb = "Follow"
+             if(profileValue.is_following) {
+                verb = "Unfollow"
+            }
+             formattedHtml = "<h1>" + profileValue.user.username +   "  | <a href='#' class='follow-btn' data-id=" + profileValue.id + ">" + verb + " " + profileValue.follower_count + "</a></h1>"
+             $('#test').append(formattedHtml)
+         }
+       function fetchProfile(url) {
+            console.log("fethicng ...")
+            var fetchUrl;
+            if (!url) {
+                fetchUrl = "/api/accounts/" + "{{ object.profile.id }}"
+            } else {
+                fetchUrl = "/api/accounts/"
+                fetchUrl = fetchUrl + url.toString()
+            }
+            $.ajax({
+            url: fetchUrl,
+{#            data: {#}
+{#                "q": query#}
+{#            },#}
+            method: "GET",
+            success: function(data){
+                console.log(data.user.username)
+                console.log(data.user_img)
+                console.log(data.user)
+                displayProfile(data)
+{#                profileList = data.results#}
+{#                if (data.next) {#}
+{#                    nextProfileUrl = data.next#}
+{#                } else {#}
+{#                    $("#loadmore").css("display", "none");#}
+{#                }#}
+
+            },
+            error: function(data){
+                console.log("error")
+                console.log(data)
+            }
+        })
+        }
+         fetchProfile()
+                });
+</script>
+    <div id="test"></div>
+
+{% endblock content %}

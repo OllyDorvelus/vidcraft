@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+</head>
+<body>
+<h1>{{ video.title }}</h1>
+  <video id="my-video" class="video-js singlevideo" controls preload="auto" width="720" height="480"
+  poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+    <source src="{{ video.video.url }}" type='video/mp4'>
+    <source src="{{ video.video.url }}" type='video/webm'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+
+
+{% endblock content %}

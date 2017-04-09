@@ -1,0 +1,43 @@
+
+{% block content %}
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myloginLabel">Vcraft| Login</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid" style="margin-left:200px">
+
+            <div class="col-sm-12 col-md-7">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3>Login</h3>
+                    <form class="form-horizontal" action="{% url 'accounts:login' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'accounts/formtemplate.html' %}
+                        <div class="form-group" style="display:inline" >
+                            <a class="col-sm-offset-2 col-sm-10"  >
+                                <button type="submit" class="btn btn-success">Login</button>
+
+                                <a href= "#"  data-dismiss="modal" /><button type="button" class="btn btn-success register">Register</button></a>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

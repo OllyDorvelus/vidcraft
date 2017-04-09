@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <title></title>
+
+<body>
+    {% for video in videos %}
+        <h1>{{ video.title }}</h1>
+        <h2>{{ video.user.username }}</h2>
+        <h3>{{ video.description }}n</h3>
+    {% endfor %}
+</body>
+
+{% endblock content %}
